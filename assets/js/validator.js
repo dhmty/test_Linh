@@ -53,7 +53,7 @@ function Validator(options) {
                 }
                 //TH submit với hành vi mặc định
                 else {
-                    formElement.submit();
+                     formElement.submit();
                 }
             } 
             else {
@@ -66,7 +66,7 @@ function Validator(options) {
 
         
         //Lặp qua mỗi rule và xử lý(lắng nge sự kiên)
-            options.rules.forEach(function (rule){
+        options.rules.forEach(function (rule){
            // lưu lại tất cả các rule cho mỗi input
              if (Array.isArray(selectorRules[rule.selector])) {
                selectorRules[rule.selector].push(rule.test);

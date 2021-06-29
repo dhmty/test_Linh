@@ -183,6 +183,16 @@
   font-size: 15px;
   font-weight: 600;
 }
+#btn_dx{
+  display: none;
+}
+.id_SV{
+  display: none;
+  padding: 10px 0px 10px 10px;
+  font-size: 1.6rem;
+  font-style: oblique;
+  font-weight: 700;
+}
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
@@ -192,7 +202,12 @@
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
-
+#myForm_tb{
+  margin: 150px 466px;
+}
+#myForm_tb_error{
+  margin: 150px 466px;
+}
 /* Add styles to the form container */
 /* .form {
   max-width: 300px;
@@ -218,6 +233,9 @@
 /* Add a red background color to the cancel button */
 .form .cancel {
   background-color: red;
+}
+.form .tbao{
+  background-color:green;
 }
 
 /* Add some hover effects to buttons */

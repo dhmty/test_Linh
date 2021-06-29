@@ -23,8 +23,10 @@
             Dự Đoán Kết Quả
           </div>
           <div class="line"></div>
-          <button class="open-button" onclick="openForm()">Đăng Nhập</button>
-          <!-- <label class="id_SV" id="id_SV">doan</label> -->
+          <button class="open-button" id="btn_dn" onclick="openForm()">Đăng Nhập</button>
+          <button class="open-button" id="btn_dx" onclick="returnDN()">Đăng Xuất</button>
+          <label class="id_SV" id="lbl_SV">Mã Sinh Viên : </label>
+          <label class="id_SV" id="id_SV">doan</label>
         </div>
         
         <label class="overlay" id="overlay">
@@ -55,6 +57,24 @@
                 <button type="button" class="btn cancel" onclick="closeForm()">Đóng</button>
             </form>
         </div>
+        <!-- form thông báo oke-->
+        <div class="form-popup" id="myForm_tb">
+          <form action="/action_page.php" method="POST" class="form" id="form_tb">
+              <h3 class="heading">THÔNG BÁO</h3>
+              <p class="desc">❤️ Access to your page SUCCESS ❤️</p>
+              <div class="spacer"></div>
+              <button type="button" class="btn cancel tbao" onclick="closeForm_tb()">Đóng</button>
+          </form>
+        </div>
+        <!-- form thông báo lỗi-->
+        <div class="form-popup" id="myForm_tb_error">
+          <form action="/action_page.php" method="POST" class="form" id="form_tb_error">
+              <h3 class="heading">THÔNG BÁO</h3>
+              <p class="desc">❤️ Mã Sinh Viên Hoặc Mật Khẩu Không Chính Xác ❤️</p>
+              <div class="spacer"></div>
+              <button type="button" class="btn cancel tbao" onclick="openForm()">Thử Lại</button>
+          </form>
+        </div>
 
         <!-- Tab content -->
         <div class="tab-content">
@@ -69,10 +89,6 @@
           <div class="tab-pane">
             <h2>Ember</h2>
             <p>Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
-          </div>
-          <div class="tab-pane">
-            <h2>Vue.js</h2>
-            <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. </p>
           </div>
         </div>
       </div>
@@ -90,7 +106,17 @@
             ],
             onsubmit : function(data){
                 //call API
-                console.log(data);
+                var a=data.MSV;
+                var b=data.password;
+                if (a==b) {
+                           document.getElementById("id_SV").innerHTML = a;
+                           openDN()
+                          }
+                else {
+                  document.getElementById("myForm").style.display = "none";
+                  document.getElementById("myForm_tb_error").style.display = "block";
+                }
+                
             }
         });
     </script>
